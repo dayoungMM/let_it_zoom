@@ -16,7 +16,12 @@
 
 
 - 매일 아침에 할 일
-  1. `git pull origin master`로 master의 내용을 pull 받는다.
+  1. `git pull origin master`로 master의 내용을 pull 받는다. 
+  
+     (`git switch master`를 해서 master branch에서 pull 받아야 하며 받으면 나만의 branch에는 자동 update)
+  
+     *작업 중에 pull 받지 말기! 작업 중에 pull 받을 땐 git 관리자에게 말하고 시행!
+  
   2. 작업 시작! 작업 중/ 작업 후에는 아래 코스를 따른다.
 
 
