@@ -1,8 +1,8 @@
 CREATE TABLE food_list (
-    foodId int NOT NULL AUTO_INCREMENT,
+    id int NOT NULL AUTO_INCREMENT,
     foodName VARCHAR(50) NOT NULL,
     foodImg VARCHAR(1000) NOT NULL,
-    PRIMARY KEY (foodId)
+    PRIMARY KEY (id)
 );
 
 INSERT INTO food_list (foodName, foodImg) VALUES 
