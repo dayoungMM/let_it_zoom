@@ -1,0 +1,6 @@
+CREATE TABLE user (
+    id int NOT NULL AUTO_INCREMENT,
+    nickName VARCHAR(50) NOT NULL,
+    score INT NOT NULL DEFAULT 0,
+    PRIMARY KEY (id)
+);
