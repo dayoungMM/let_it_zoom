@@ -7,5 +7,6 @@ from django.conf import settings
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('letitzoom/', views.site),
+    # path('letitzoom/', views.site),
+    # path('data/', views.data, name='data'),
 ]
