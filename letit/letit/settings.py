@@ -79,12 +79,11 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'let_it_zoom',
         'USER': 'root',
-        'PASSWORD': 'dss',
+        'PASSWORD': '1234',
         'HOST': 'localhost',
         'PORT': 3306
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
