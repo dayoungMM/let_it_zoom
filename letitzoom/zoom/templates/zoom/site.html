@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% load static %}
+
+<!-- <link rel="stylesheet" type="text/css" href="{% static 'style.css' %)"> -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+<link href="https://fonts.googleapis.com/css?family=Gamja+Flower&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+<style>
+  body, html {height: 100%}
+  body,h1,h2,h3,h4,h5,h6 {font-family: 'Gamja Flower', cursive;}
+  .menu {display: none}
+  .bgimg {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("{% static 'zoom/pic.png' %}");
+    min-height: 90%;
+  }
+
+  .card {
+    position: relative;
+    transition: transform 2s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+  }
+
+  .front{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+   
+  }
+
+  .container {
+    margin: 20px;
+    width: 500px;
+    height: 500px;
+    perspective: 1000px;
+  }
+
+
+
+  .back2 {
+    position: relative;
+      top: 30%;
+      left: 78%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      backface-visibility: hidden;
+      border: 2px solid black;
+      background: url("{% static 'zoom/chicken.jpg' %}");
+      transform: rotateY(180deg);
+  }
+
+  .back2:hover {
+    bottom: 2px;
+    right: 2px;
+    box-shadow: 0px 0px 20px 1px #000;
+  }
+
+
+  .back3 {
+    position: relative;
+      top: -5%;
+      left: 53%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      backface-visibility: hidden;
+      border: 2px solid black;
+      background: url("{% static 'zoom/rabbit1.jpg' %}");
+      transform: rotateY(180deg);
+  }
+
+  .back3:hover {
+    bottom: 2px;
+    right: 2px;
+    box-shadow: 0px 0px 20px 1px #000;
+  }
+
+
+  .back4 {
+    position: relative;
+      top: -40%;
+      left: 27%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      backface-visibility: hidden;
+      border: 2px solid black;
+      background: url(http://placehold.it/100x100);
+      transform: rotateY(180deg);
+  }
+
+  .back4:hover {
+    bottom: 2px;
+    right: 2px;
+    box-shadow: 0px 0px 20px 1px #000;
+  }
+
+
+  .back5 {
+    position: relative;
+      top: -75%;
+      left: 2%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      backface-visibility: hidden;
+      border: 2px solid black;
+      background: url(http://placehold.it/100x100);
+      transform: rotateY(180deg);
+  }
+
+  .back5:hover {
+    bottom: 2px;
+    right: 2px;
+    box-shadow: 0px 0px 20px 1px #000;
+}
+
+
+
+.game {
+    position: absolute;
+      top: 11%;
+      left: 2%;
+      display: none;
+      opacity: 0;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 5px solid black;
+      background: url("{% static 'zoom/game1.png' %}");
+  }
+
+  .foodImg {
+    position: absolute;
+      top: 9%;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index:9998 ;
+      text-align: center;
+  }
+
+.time-container {
+        color: red;
+        font-size: 48px;
+        font-weight: bold;
+        position: absolute;
+        top: 3%;
+        left: 5%;
+
+      }
+
+ .input-container {
+      }
+      #input-word {
+      }
+
+
+
+
+  .gameover {
+    position: absolute;
+      top: 0%;
+      left: 0%;
+      display: none;
+      background-color: #000;
+      align-items: center;
+      opacity: 0;
+     
+  }
+
+  
+  .answer1 {
+    position: absolute;
+      top: 38%;
+      left: 48%;
+      display: none;
+      background-color: white;
+      align-items: center;
+      opacity: 0;
+      font-size: 30px;
+      color: white;
+  }
+
+  .answer2 {
+      position: absolute;
+        top: 8%;
+        left: 19%;
+        display: none;
+        background-color: white;
+        align-items: center;
+        opacity: 0;
+    }
+
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top w3-hide-small">
+  <div class="w3-bar w3-xlarge w3-opacity w3-hover-opacity-off" id="myNavbar" style = background-color:#FF7887 id="myNavbar">
+    <a href="#ranking" class="w3-bar-item w3-button">RANKING!</a>
+  
+  </div>
+</div>
+  
+
+<!-- Header with image -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  
+ <div calss="container" >
+   <div class="card" style= "height: 800px">
+      <div class="front">
+        <div class="w3-display-middle w3-center">
+          <span class="w3-text-black w3-hide-small" style="font-size:150px">LET IT ZOOM!</span>
+             <h4 class="w3-center w3-jumbo" style="margin-bottom:0px">NickName</h4>
+             
+        
+            <form class=login method = "POST" action="" id = 'form_login'>
+              {% csrf_token %}
+              <input class="w3-input w3-padding-13 w3-border" id=insert_nickName 
+                type="text" name = "nickName" placeholder="Name" required name="Name"
+                style="display: inline-block;width: 75%;">
+              <button class="w3-input w3-padding-13 w3-border" id=submit_nickName 
+                input type = "submit" value="new_nickName" 
+                style="display: inline-block; width: 20%;height: 40px;" onclick="name_off()">
+                  SEND</button></form>
+           <p>{{request.session.nickName}} 님 게임을 시작해주세요. </p>
+           <p><button id="start" class="w3-button w3-xxlarge w3-black"  onclick="flip(event)">START</button></p>
+        </div>
+      </div>
+      
+      <div class="back2" style="height: 35%; width: 20%; " onclick="appear(event, 'food')">
+          <span style ="font-size: 80px; font-size: 80px;position: relative;top: 13%;">음 식</span>
+        
+
+      </div>
+        
+      <div class="back3" style="height: 35%; width: 20%;" onclick="appear(event, 'animal')">
+        <span style ="font-size: 80px; font-size: 80px;position: relative;top: 13%;">동 물</span>
+    
+      </div>
+      <div class="back4" style="height: 35%; width: 20%;">
+          <h1>준 비 중!</h1>
+        
+      </div>
+      <div class="back5" style="height: 35%; width: 20%;">
+          <h1>준 비 중!</h1>
+        
+      </div>
+      
+
+    </div>
+  </div>
+  
+  
+  
+  <div class="game" style="height: 78%;width: 96%;">
+    <div class="gameover" style = "width: 100%; height: 100%; text-align: center; z-index:10000">
+      <span style=" font: italic bold 4em/1em 'Gamja Flower', cursive, serif; color: white ; margin-left:auto; margin-right:auto;">
+        GAME OVER
+        <div class="final-point" name="finalscore" style="color:white;">점수</div>
+        <div class="myrank" name="myrank" style="color:white;">랭킹</div>
+      </span>
+      <button id="check" 
+      style="font: 2em/1em Tahoma, serif;color: black ;margin-left:auto;margin-right:auto;position: absolute;left: 82%;top: 88%; cursor: text; 
+      font-family: 'Gamja Flower', cursive; border: none; background-color: black; color: white;" 
+      onclick="answer(event)", cursor();>
+        정답확인
+      </button>
+     
+     
+      <button id="check" 
+      style="font: 2em/1em Tahoma, serif;color: black ;margin-left:auto;margin-right:auto;position: absolute;left: 5%;top: 88%; cursor: text; 
+      font-family: 'Gamja Flower', cursive; border: none; background-color: black; color: white;" 
+      onclick="window.location.reload()", cursor();>
+        <i class="fas fa-sync-alt fa-spin"></i>   
+      </button>
+
+      <div class="answer1" style = "width: 65%; height: 80%; text-align: center; background: none; z-index:9998" >
+        <img class="answer2" src="data:image/jpeg;base64,{{b64}}" alt="{{food.foodName}}" style="position: absolute;top: -40%;left: -32%;align-items: center;z-index: 9997;display: flex;" >
+        <h1 style = "position: absolute; left: -5%;">{{food.foodName}}</h1>
+        <button id="close" style="margin-left:auto;margin-right:auto;position: absolute;left: -32%;top: -40%; z-index: 9999;" onclick="this.parentNode.style.display = 'none';"><i class="fas fa-window-close" aria-hidden="true"></i></button>
+      </div>
+    </div>
+            <div class="time-container">시간</div>
+            <div class="get-point" style = "position: absolute; top: 5%; left: 30%; font-size:40px">점수</div>
+            <div class="get-level" style = " position: absolute; top: 5%;left: 55%; font-size:40px">레벨</div>
+          
+              <div class="input-container">
+              
+                <input id="input-word" type="text" onchange="updateWord(this.value)" style="z-index:9999 ; position: absolute;top: 85%;left: 30%;width: 40%;height: 10%; font-size:30px; font-family: ;  "/>
+                <div class = 'foodImg' style="position:relative; height: 60%;width: 80%;  ">
+                    <img id="photo" src="data:image/jpeg;base64,{{b64}}" alt="{{food.foodName}}" style = "position: relative; top: -23%;">
+                  </div>
+              
+          </div>
+      </div>
+
+
+  <div class="w3-display-bottomleft w3-padding">
+  <span class="w3-tag w3-xlarge">MADE BY TEAM LETITZOOM!</span>
+
+</header>
+
+
+<!-- Menu Container -->
+<div class="w3-container w3-padding-64 w3-xxlarge" id="ranking" style = background-color:#FF7887  id="menu">
+  <div class="w3-content">
+  
+    <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">RANKING!</h1>
+    <div class="w3-row w3-center w3-border w3-border-dark-grey">
+    
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Pasta');" id="myLink" style="
+      text-decoration: none;">
+        <div class="w3-center s4 tablink w3-padding-large" style = background-color:#EB6649!important>명예의전당!
+          <img src='/static/zoom/crown.png' width='40px' style = "position: relative;height: 6%;right: -3%;top: 121%;margin-left: -1%;margin-bottom: 2%;">
+        </div>
+      </a>
+      
+    </div>
+
+    
+    <div id="Pasta" class="w3-container menu w3-padding-32 w3-white">
+      <h1><img src='/static/zoom/gold.png' width='60px'><b>{{rankings.0.nickName}}</b><span class="w3-text-grey" style="margin-left:10px;">{{rankings.0.pub_date}}</span><span class="w3-right w3-tag w3-dark-grey w3-round">{{rankings.0.score}} 점</span></h1>
+      
+      <hr>
+   
+      <h1><img src='/static/zoom/sliver.png' width='60px'><b>{{rankings.1.nickName}}</b><span class="w3-text-grey" style="margin-left:70px;">{{rankings.1.pub_date}}</span><span class="w3-right w3-tag w3-dark-grey w3-round">{{rankings.1.score}} 점</span></h1>
+      
+      <hr>
+      
+      <h1><img src='/static/zoom/bronze.png' width='60px'><b>{{rankings.2.nickName}}</b><span class="w3-text-grey" style="margin-left:70px;">{{rankings.2.pub_date}}</span><span class="w3-right w3-tag w3-dark-grey w3-round">{{rankings.2.score}} 점</span></h1>
+      
+      <hr>
+
+      <h1><b>{{rankings.3.nickName}}</b> <span class="w3-text-grey" style="margin-left:70px;">{{rankings.3.pub_date}}</span><span class="w3-right w3-tag w3-dark-grey w3-round">{{rankings.3.score}} 점</span></h1>
+      
+      <hr>
+
+      <h1><b>{{rankings.4.nickName}}</b> <span class="w3-text-grey" style="margin-left:70px;">{{rankings.4.pub_date}}</span><span class="w3-right w3-tag w3-dark-grey w3-round">{{rankings.4.score}} 점</span></h1>
+      
+
+
+    </div>
+
+
+
+  </div>
+</div>
+
+
+
+<!-- Footer -->
+<footer class="w3-center w3-padding-48 w3-xxlarge" style = background-color:#FF7887>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+</footer>
+
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+      let words = document.getElementById( 'photo' ).getAttribute( 'alt' );  // 값 변경 X 
+      
+      let timeCount = 15;
+      let getPointCount= 0; //값변경 가능 
+      let getLevelCount = 1;
+      let finalPointCount = 0;
+      foodId = '{{food.id}}';
+      opaval = 0;
+      let current_user = "{{current_user}}"
+      let category = ""
+      
+      
+      
+      const time = document.querySelector(".time-container");
+      const getPoint = document.querySelector(".get-point");
+      const finalPoint = document.querySelector(".final-point");
+      const myrank = document.querySelector(".myrank");
+      const getLevel = document.querySelector(".get-level");
+      const input = document.getElementById("input-word");
+      const defaultOutline = input.style.outline;
+      
+      
+      time.innerHTML = timeCount;
+      getPoint.innerHTML = "현재 점수 : " + getPointCount;
+      finalPoint.innerHTML = "최종 점수 : " + finalPointCount;
+      getLevel.innerHTML = "현재 레벨 : " + getLevelCount;
+
+      
+      const tick = () => {
+        time.innerHTML = timeCount;
+        if (timeCount === -1) {
+          clearInterval(start);
+          appear2()
+          setfinalscore()
+        } else {
+          timeCount -= 1;
+        }
+      };
+      var start;
+
+      const updateWord = value => { 
+        getPoint.innerHTML = "현재 점수 : " + getPointCount;
+        
+        
+        
+        
+        if (value == words) {
+          getPointCount = getPointCount +100;
+          finalPointCount = finalPointCount +100;
+          getPoint.innerHTML = "현재 점수 : " + getPointCount;
+          finalPoint.innerHTML = "최종 점수 : " + finalPointCount;
+
+          if (getPointCount % 500 ==0 ){
+            getLevelCount = getLevelCount +1;
+            getLevel.innerHTML = "현재 레벨 : " + getLevelCount ;
+          }
+          
+          getPhoto(); // ajax
+
+          timeCount = 15;
+          primaryInput();
+        } else {
+          warningInput();
+        }
+        input.value = "";
+      };
+      const warningInput = () => {
+        input.style.outline = "1px solid red";
+      };
+      const primaryInput = () => {
+        input.style.outline = defaultOutline;
+      };
+
+
+      const getPhoto = () => {
+        $.ajax({
+            url: '/data/',
+            type: 'post',
+            data: {'score': getPointCount, 'category' : category , 'csrfmiddlewaretoken' : $('[name=csrfmiddlewaretoken]').val()},
+            success: function(res){
+              b64 = res.b64
+              b64 = 'data:image/jpeg;base64,' + b64
+              foodName = res.foodName
+              foodId = res.foodId
+              $('#photo').attr('src', b64)
+              $('#photo').attr('alt', foodName)
+              
+              words = document.getElementById( 'photo' ).getAttribute( 'alt' );
+            }
+        })
+        return false;
+    };
+
+
+    
+    const setfinalscore = () => {
+        $.ajax({
+            url: '/finalscore/',
+            type: 'post',
+            data: {'score': getPointCount, 'current_user' : current_user, 'csrfmiddlewaretoken' : $('[name=csrfmiddlewaretoken]').val()},
+            success: function(res){
+              rank = res.rank
+              myrank.innerHTML = "내 랭킹 : " + rank + "위";
+            }
+        })
+        return false;
+    };
+
+
+
+
+
+
+ function appear(event, category1){
+  category = category1
+  $.ajax({
+            url: '/data/',
+            type: 'post',
+            data: {'score': getPointCount, 'category' : category ,'csrfmiddlewaretoken' : $('[name=csrfmiddlewaretoken]').val()},
+            success: function(res){
+              console.log("사진가져옴")
+              b64 = res.b64
+              b64 = 'data:image/jpeg;base64,' + b64
+              foodName = res.foodName
+              foodId = res.foodId
+              console.log("이름은" + foodName)
+              $('#photo').attr('src', b64)
+              $('#photo').attr('alt', foodName)
+              words = document.getElementById( 'photo' ).getAttribute( 'alt' );
+
+              var game = document.getElementsByClassName('game')[0];
+              game.style.display = "flex";
+              opaval = 0;
+              fade_interval = setInterval(function(){
+                opaval += 0.01;
+                game.style.opacity = opaval;
+                if(opaval>=1) clearInterval(fade_interval);
+              }, 10);
+
+              start = setInterval(tick, 1000);
+            }
+        })
+        return false;
+} 
+
+
+    // const answer = () => {
+    //   console.log("답지답지답지 : " + foodId)
+    //   $.ajax({
+    //       url: '/answer/',
+    //       type: 'post',
+    //       data: {'foodId': foodId, 'category' : category , 'csrfmiddlewaretoken' : $('[name=csrfmiddlewaretoken]').val()},
+    //       success: function(res, opaval){
+    //         b64 = res.b64
+    //         b64 = 'data:image/jpeg;base64,' + b64
+    //         foodName = res.foodName
+    //         $('.answer2').attr('src', b64)
+    //         $('.answer2').attr('alt', foodName)
+    //         let answer = document.querySelector(".answer1");
+    //         answer.innerHTML = foodName;
+    //         answer.style.display = "flex";
+    //         fade_interval = setInterval(function(){
+    //           opaval += 0.01;
+    //           answer.style.opacity = opaval;
+    //           if(opaval>=1) clearInterval(fade_interval);
+    //         }, 10, opaval);
+
+    //         let answer2 = document.querySelector(".answer2");
+    //         answer2.style.display = "flex";
+    //         opaval = 0;
+    //         fade_interval = setInterval(function(){
+    //           opaval += 0.01;
+    //           answer2.style.opacity = opaval;
+    //           if(opaval>=1) clearInterval(fade_interval);
+    //         }, 10, opaval);
+          
+    //       }
+    //   })
+    //   return false;
+    // };
+
+
+    const answer = () => {
+  $.ajax({
+      url: '/answer/',
+      type: 'post',
+      data: {'foodId': foodId, 'category' : category , 'csrfmiddlewaretoken' : $('[name=csrfmiddlewaretoken]').val()},
+      success: function(res){
+        b64 = res.b64
+        b64 = 'data:image/jpeg;base64,' + b64
+        foodName = res.foodName
+        $('.answer2').attr('src', b64)
+        $('.answer2').attr('alt', foodName)
+        let answer = document.querySelector(".answer1");
+        answer.querySelector('h1').innerHTML = foodName;
+        answer.style.display = "flex";
+        opaval1 = 0;
+        fade_interval1 = setInterval(function(){
+          opaval1 += 0.01;
+          answer.style.opacity = opaval1;
+          if(opaval1>=1) clearInterval(fade_interval1);
+        });
+        let answer2 = document.querySelector(".answer2");
+        answer2.style.display = "flex";
+        opaval2 = 0;
+        fade_interval2 = setInterval(function(){
+          opaval2 += 0.01;
+          answer2.style.opacity = opaval2;
+          if(opaval2>=1) clearInterval(fade_interval2);
+        });
+      
+      }
+  })
+  return false;
+}; 
+
+  function appear2(event){
+    console.log('appear2');
+    var game = document.getElementsByClassName('gameover')[0];
+    game.style.display = "flex";
+    opaval = 0;
+    fade_interval = setInterval(function(){
+      console.log(opaval);
+      opaval += 0.005;
+      game.style.opacity = opaval;
+      if(opaval>=1) clearInterval(fade_interval);
+    }, 10);
+    }
+
+ 
+
+
+  
+  function flip(event){
+    var login = "{{request.session.nickName}}"
+    if (login == "") {
+      alert("로그인해주세요")
+      window.location.reload()
+    }
+    else{
+      var card = document.getElementsByClassName('card')[0];
+      setTimeout("card_off()", 600);
+
+      if (card.style.transform = "rotateY(0deg)"){
+        card.style.transform = "rotateY(180deg)";
+        
+      };
+    }
+  };
+
+  function card_off(){
+    document.querySelector('.card > .front').style.display = "none";
+  }
+
+  function enterkey() {
+    if (window.event.keyCode == 13) {
+      console.log(111);
+          }
+  }
+
+function openMenu(evt, menuName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("menu");
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+     tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-red";
+}
+document.getElementById("myLink").click();
+</script>
+
+</body>
+</html>
