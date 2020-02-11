@@ -18,8 +18,9 @@
 
   3. make sure the 'settings.py' file code is correct especially below code
 
-     ```python
-   DATABASES = {
+     ----
+  
+      DATABASES = {
          'default': {
              'ENGINE': 'django.db.backends.mysql',
              'NAME': '[your DB name]',
@@ -29,9 +30,8 @@
              'PORT': 3306
          }
      }
-     ```
   
-     
+     ----
   
   4. make database named as  'let_it_zoom' in heidSQL
   
